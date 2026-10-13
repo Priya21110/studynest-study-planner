@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A simple study planner to organize today's learning tasks." />
+    <title>StudyNest | Your study planner</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="StudyNest home"><span class="brand-mark">S</span> StudyNest</a>
+      <span class="saved-label"><span class="saved-dot"></span> Saved on this device</span>
+    </header>
+
+    <main id="top" class="page-wrap">
+      <section class="welcome">
+        <div>
+          <p class="eyebrow">YOUR SPACE TO FOCUS</p>
+          <h1>A little progress<br /><span>every day.</span></h1>
+          <p class="intro">Plan your study session, one task at a time.</p>
+        </div>
+        <div class="date-card"><span class="date-icon" aria-hidden="true">✦</span><span id="today-date">Today</span></div>
+      </section>
+
+      <section class="summary-grid" aria-label="Study progress">
+        <article class="summary-card total-card"><span class="summary-label">TODAY'S TASKS</span><strong id="total-count">0</strong><span class="summary-caption">small steps add up</span></article>
+        <article class="summary-card done-card"><span class="summary-label">COMPLETED</span><strong id="done-count">0</strong><span class="summary-caption">keep it going</span></article>
+        <article class="progress-card"><div class="progress-copy"><span class="summary-label">DAILY PROGRESS</span><strong id="progress-text">0%</strong></div><div class="progress-track"><div id="progress-bar" class="progress-bar"></div></div><span id="progress-caption" class="summary-caption">Add a task to get started</span></article>
+      </section>
+
+      <section class="planner-layout">
+        <div class="task-panel">
+          <div class="section-top"><div><p class="eyebrow">YOUR PLAN</p><h2>Study tasks</h2></div><span id="task-count-label" class="count-pill">0 tasks</span></div>
+
+          <form id="task-form" class="task-form">
+            <label class="visually-hidden" for="task-input">What do you want to study?</label>
+            <input id="task-input" name="task" type="text" maxlength="90" placeholder="What do you want to study?" autocomplete="off" required />
+            <label class="visually-hidden" for="subject-select">Choose a subject</label>
+            <select id="subject-select" name="subject">
+              <option>Study</option><option>Computer Science</option><option>Web Development</option><option>Python</option><option>Machine Learning</option><option>Interview Prep</option><option>Other</option>
+            </select>
+            <button class="add-button" type="submit"><span aria-hidden="true">+</span> Add task</button>
+          </form>
+
+          <div class="list-toolbar"><div class="filters" role="group" aria-label="Filter study tasks">
+            <button class="filter-button active" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter-button" type="button" data-filter="active" aria-pressed="false">To do</button>
+            <button class="filter-button" type="button" data-filter="done" aria-pressed="false">Done</button>
+          </div><button id="clear-done" class="clear-button" type="button">Clear completed</button></div>
+
+          <ul id="task-list" class="task-list" aria-live="polite"></ul>
+          <div id="empty-state" class="empty-state"><span class="empty-icon" aria-hidden="true">✎</span><h3>Your plan starts here</h3><p>Add one small task you want to finish today.</p></div>
+        </div>
+
+        <aside class="tip-card"><div class="tip-spark" aria-hidden="true">✦</div><p class="eyebrow">A GENTLE REMINDER</p><h2>Start small.<br />Stay steady.</h2><p>One focused study session is better than waiting for the perfect time. Pick a task and begin.</p><div class="tip-line"></div><span class="tip-footer">You’ve got this.</span></aside>
+      </section>
+
+      <footer><span>Made for your next small win.</span><span>StudyNest · <span id="footer-year"></span></span></footer>
+    </main>
+  </body>
+</html>
